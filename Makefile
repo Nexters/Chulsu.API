@@ -6,3 +6,6 @@ mysql_install:
 
 test:
 	curl -X POST http://127.0.0.1:3002/save -d "text=123&desc=asfasf&etc=123123"
+
+daemon:
+	python hello.py --daemon

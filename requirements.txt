@@ -2,3 +2,5 @@ flask
 Flask-SQLAlchemy
 mysql-python
 jinja2
+gunicorn
+python-daemon

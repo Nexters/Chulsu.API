@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 {% block body %}
   <h2> 내용들 </h2>
+  {% for i in range(0,count) %}
+    <a href=/list/{{ i+1 }}> {{ i+1 }}</a>
+  {% endfor %}
   <table border="1">
   {% for info in infos %}
     <tr>

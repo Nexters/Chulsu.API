@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import argparse, daemon, os
 from flask import Flask
 from flask import request
@@ -8,7 +9,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
 app = Flask(__name__)
-"""
+
 app.config.update(dict(
     DEBUG=True,
     SECRET_KEY='development key',
@@ -16,11 +17,11 @@ app.config.update(dict(
     PASSWORD='default'
 ))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
-"""
+
 
 @app.route("/save",methods=['POST'])
 def save():
-    print(request.values["desc"])
+    print(request.form["text"])
     i = Info(request.form["text"], request.form["desc"],request.form["etc"])
     db_session.add(i)
     db_session.commit()
@@ -34,8 +35,6 @@ def hello():
 def show_entries():
     infos_query = db_session.query(Info)
     infos = [dict(text=info.text, description=info.description, etc=info.etc, created_at=info.created_at) for info in infos_query]
-
-    print infos
 
     return render_template('show_infos.html', infos=infos)
 

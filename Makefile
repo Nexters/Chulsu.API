@@ -12,3 +12,6 @@ daemon: install
 
 run: install
 	python hello.py
+
+kill:
+	ps -ef | grep python | awk '{print $2}' | xargs kill -9

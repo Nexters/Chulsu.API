@@ -9,7 +9,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
 app = Flask(__name__)
-
+"""
 app.config.update(dict(
     DEBUG=True,
     SECRET_KEY='development key',
@@ -17,7 +17,7 @@ app.config.update(dict(
     PASSWORD='default'
 ))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
-
+"""
 
 @app.route("/save",methods=['POST'])
 def save():

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2> 내용들 </h2>
+  <table border="1">
+  {% for info in infos %}
+    <tr>
+      <td>{{ info.text }}</td>
+      <td>{{ info.description|safe }}</td>
+      <td>{{info.etc|safe}}</td>
+      <td>{{info.created_at|safe}}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

@@ -39,4 +39,4 @@ def show_entries():
 
 if __name__ == "__main__":
     init_db()
-    app.run(port=3002)
+    app.run(port=4200)

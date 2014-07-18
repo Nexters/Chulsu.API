@@ -5,6 +5,7 @@ from flask import request
 from models import Info
 from database import init_db
 from database import db_session
+from sqlalchemy import desc
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
@@ -35,7 +36,7 @@ def hello():
 def show_entries(page):
     page = page - 1
     page_cnt = 20
-    infos_query = db_session.query(Info).order_by(Info.id).limit(page_cnt).offset(page_cnt*page)
+    infos_query = db_session.query(Info).order_by(desc(Info.id)).limit(page_cnt).offset(page_cnt*page)
     count = (db_session.query(Info).count() / page_cnt ) + 1
 
     infos = [dict(text=info.text, description=info.description, etc=info.etc, created_at=info.created_at) for info in infos_query]
